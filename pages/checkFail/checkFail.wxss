@@ -1,0 +1,6 @@
+page{ background:#fff; color: #666; text-align:center; }
+.checkPic image { margin: 125rpx auto 50rpx auto; width:446rpx; height:381rpx;}
+.check-text { margin: 30rpx auto 0 auto; width:625rpx;}
+.check-text text{ line-height:50rpx; display:block; color: #666; font-size:33rpx; text-align:left; }
+.itemView { margin-top:45rpx;}
+.check-text .reason { color: #ff5f5f;}

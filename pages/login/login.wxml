@@ -1,0 +1,56 @@
+<view class="container login">
+	<image src="/images/login_bg.png" class="login-img"></image>
+	 	<form bindsubmit="formSubmit">
+			<view class="login-form">
+				<view class="input-pannel">
+					<input name="username" placeholder="请输入手机号" maxlength='11' type="number" placeholder-style="color:#fff" value="{{userName}}"  bindinput="checkPhone" bindblur="createCode"/>
+					<view class="input-pannel-bg"></view>
+				</view>
+				<view class="input-pannel" style="margin-top: 20rpx;">
+					<input password='true' name="password" placeholder="请输入密码" minlength="6" maxlength="12" placeholder-style="color:#fff" value="{{userPassword}}" bindinput="password" />
+					<view class="input-pannel-bg"></view>
+				</view>
+				<!--yzm start -->
+				<view class="input-pannel yzm-pannel" style="padding-left:0;">  
+			        <view class="yzm-input-pannel">  
+			            <input name="yzm" placeholder="请输入验证码"  maxlength ="4" placeholder-style="color:#fff" bindblur="yzm" />
+			            <view class="input-pannel-bg"></view>
+			        </view>  
+			        <view id="checkCode" class="text-align" bindtap="createCode">
+						<text>{{codeValue}}</text>
+			        </view>
+			       
+			    </view>  
+			   	<view class="warn-view">
+					<text class="warn-text {{is_warnshow ? 'show':'hide'}}">{{warnTitle}}</text>
+			   	</view>
+				<!--yzm end-->
+			    <view class="loginBtnView">
+			    	<button class="loginBtn"  formType="submit" type="primary"  hover-class="btn-hover" loading="{{loginLoading}}" >{{loginBtnTxt}}</button>
+			    	<view class="loginBtnBg"></view>
+			    </view>
+			
+			    <view class='forget-password text-align'>
+			    	<text bindtap="onModal">忘记密码?</text>
+			    </view>
+		    </view>
+   		</form>
+    <view class="weui-regist text-align">
+    	<navigator url="/pages/register/register" style="text-decoration:underline">还没有账号?点此注册</navigator>
+    </view>
+
+	<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="head {{isHead ? 'show':'hide'}}">
+        	<image src="/images/toast.png" style="width:551rpx; height:283rpx;"></image>
+        </view>
+        <view class="modal-content">
+	        <view class="modal-title">
+	          <text>{{titleMsg}}</text>
+	        </view>
+	        <view class="modal-footer">
+	          <button class="btn-cancel" bindtap="onCancel" data-status="cancel">我知道了</button>
+	        </view>
+        </view>
+    </view> 
+</view>

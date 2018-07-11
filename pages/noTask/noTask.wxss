@@ -1,0 +1,3 @@
+page { background: #f4f4f4; text-align: center;}
+.noPic image { margin-top: 118rpx; width: 421rpx; height:381rpx;}
+.noTask text { margin-top:33rpx; margin-bottom: 64rpx; display:block; text-align: center; font-size: 32rpx; color: #333; }

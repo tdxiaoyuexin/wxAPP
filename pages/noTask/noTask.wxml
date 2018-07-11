@@ -1,0 +1,9 @@
+<view class="noTask">
+	<view class="noPic">
+		<image src="/images/noTask.png"></image>
+	</view>
+	<text class="text">您还没有参与过任务,快行动起来吧~</text>
+	<view class="itemView">
+	<button class="button" bindtap="goPart">去参与</button>
+	</view>
+</view>

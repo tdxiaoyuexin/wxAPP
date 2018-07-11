@@ -1,0 +1,17 @@
+page{ padding-top:40rpx; }
+.itemView input { padding-left: 28rpx;  height:85rpx; border: 1rpx solid #bcbcbc; border-radius: 3px;}
+.input-yzm,.input-message { float:left; width: 435rpx; }
+#checkCode,.message-view { float: right; width: 233rpx; height: 83rpx; line-height:83rpx; border: 1rpx solid #bcbcbc; background: #fff; border-radius: 3px; overflow: hidden; }
+.message-view { border:0;  }
+.message-view button { padding:0;  background: #2396f1; color:#fff; font-size:28rpx;}
+.message-view .button-hover { background: #76bbf2;}
+#checkCode text { display: inline; color: #387f3e; font-weight:bold; font-style:italic; font-size: 40rpx;}
+input { border: 1px solid #c4c4c4;}
+
+
+.result { position: absolute; left:50%; top:125rpx; transform:translateX(-50%); width:690rpx; height: auto; max-height: 220rpx; border:1rpx solid #c6c6c6; border-top:0; overflow: hidden; color:#333; background: #fff; overflow: scroll; z-index:10;}
+.result text { display:block; padding-left:20rpx; height:70rpx; line-height:70rpx; text-align: left; color:#999; }
+.result text:hover { background: #eee; }
+
+.modal-dialog .head { position: fixed; left:50%; top: 45rpx; margin-left:-253rpx; width:551rpx; height:283rpx; z-index:13; }
+.modal-dialog .head image{ display:inline;}

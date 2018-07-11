@@ -1,0 +1,7 @@
+<!--node.wxml-->
+<view class="container">
+  <view class="node-list">
+
+  </view>
+
+</view>

@@ -1,0 +1,57 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="currentTask">
+ 	<swiper class="swiper" indicator-dots="{{indicatorDots}}"
+	  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{currentPage}}" vertical="{{vertical}}"  bindchange="swiperChange">
+	    <block wx:for="{{taskList}}" wx:key="key" >
+		    <swiper-item>
+		    	<view class="task-progress text-align" >
+		    		<text class="progressValue">{{item.progressValue}}%</text>
+		    		<text class="progressTitle">当前完成进度</text>
+		    	</view>
+		    	<text class="taskName">{{item.task}}</text>
+			    <!-- 圆形进度条 start -->
+			 <!--    <view>
+			 	<canvas class="circle canvas-bg" canvas-id="canvasCircle{{item.taskId}}" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px"></canvas>
+ 					<canvas class="circle canvas-arc" canvas-id="canvasArcCir{{item.taskId}}" data-progress="{{item.progressValue}}"  style="width:{{canvasWidth}}px;height:{{canvasHeight}}px"></canvas>
+ 				</view> -->
+			
+				<!-- 圆形进度条 end -->	
+				<!-- <view wx:if="{{!canvasSrc==''}}">
+							   	    <image src="{{canvasSrc}}" class="canvasImg"></image>
+							   	    <view wx:if="{{!canvasSrc2==''}}">
+							   	 		<image src="{{canvasSrc2}}" class="canvasImg2"></image>
+							   	    </view>
+							    </view> -->
+
+		    </swiper-item>
+	    </block>
+
+	    <view class="swiper-arrow swiper-left" catchtap="tapSwiperLeft">
+			<image src="/images/arrow-l.png"></image>
+	    </view>
+	    <view class="swiper-arrow swiper-right" catchtap="tapSwiperRight">
+			<image src="/images/arrow-r.png" ></image>
+	    </view>
+		<image src="/images/taskBg.jpg" class="slide-image" width="100%" height="100%"/>
+	</swiper>
+
+	<canvas class="circle canvas-bg" canvas-id="canvasCircle"  style="width:{{canvasWidth}}px;height:{{canvasHeight}}px"></canvas>
+	<canvas class="circle canvas-arc" canvas-id="canvasArcCir" data-progress="{{item.progressValue}}"  style="width:{{canvasWidth}}px;height:{{canvasHeight}}px"></canvas>
+
+	
+	<view>
+		<text>任务截止时间</text>
+		<view>{{}}</view>
+	</view>
+	<view>
+		<text>任务说明</text>
+		<view>{{}}</view>
+	</view>
+	<view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+	</view>
+
+    <view class="itemView">
+       <navigator url="/pages/takePictures/takePictures" class="loginBtn"><text>去完成任务</text></navigator>
+    </view>
+</view>

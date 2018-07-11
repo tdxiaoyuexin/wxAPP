@@ -1,0 +1,11 @@
+<view class="uploadSucc">
+	<image src="/images/check2.png"></image>
+	<view class="content">
+		<text>正在审核，请耐心等待！\n如有疑问，您可以联系客服\n</text>
+		<text bindtap="makePhoneCall">400-618-9920</text>
+		<view class="link" >
+			<!-- <navigator url="/pages/tasks/tasks" redirect>返回首页</navigator> -->
+			<navigator url="/pages/tasks/tasks" bindtap="goback">返回首页</navigator>
+		</view>
+	</view>
+</view>

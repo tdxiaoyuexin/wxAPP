@@ -1,0 +1,88 @@
+<view class="register">
+    <form bindsubmit="formSubmit">
+    <view class="regist-step1 {{stepShow?'hide':'show'}}">
+        <view class="itemView">
+            <input class="input" name="username" maxlength='11' type="number"  placeholder="请输入手机号" placeholder-style="color:#a1a1a1" bindinput="checkPhone"/>
+        </view>
+        <view class="itemView">
+            <input class="input input-yzm" name="yzm" maxlength="4" placeholder="请输入验证码" placeholder-style="color:#a1a1a1" bindinput="yzm" />
+            <view id="checkCode" class="text-align" bindtap="createCode">
+                <text>{{codeValue}}</text>
+            </view>
+        </view>
+     <!--   <view class="itemView">
+         <input class="input input-message" name="message" placeholder="短信验证" placeholder-style="color:#a1a1a1" bindinput="" />
+         <view class="message-view text-align" >
+             <button bindtap="clickVerify" >{{is_show ?'获取验证码':last_time+'s'}}</button>
+         </view>
+     </view> -->
+        <view class="itemView" style="margin-bottom: 0">
+            <input class="input" name="password" minlength="6" maxlength='12' placeholder="请输入6~12位密码，支持字母和数字" placeholder-style="color:#a1a1a1" bindinput="password"/>
+        </view>
+        <view class="warn-view">
+            <text class="warn-text {{is_warnshow ? 'show':'hide'}}">{{warnTitle}}</text>
+        </view>
+        <view class="itemView buttonView">
+            <button class="loginBtn button" bindtap="nextFirst">下一步</button>
+        </view>
+    </view>
+
+    <view class="regist-step2 {{stepShow?'show':'hide'}}">
+        <view class="itemView">
+            <input class="input" type="search" name="" placeholder="请搜索您所属的公司" value="{{searchValue}}" placeholder-style="color:#a1a1a1"  bindinput="searchCompany" bindblur="blurTap"/>
+            <input name="company_id" class="hide" value='{{companyId}}' style="height: 0" /> 
+        </view>
+        <view scroll-y="true" class='result {{resultShow ? "show": "hide"}}'>
+          <view wx:for="{{searchList}}" wx:for-item="item" wx:key="id">
+            <text bindtap="tapCompany" data-id="{{item.id}}" data-name="{{item.companyName}}">{{item.companyName}}</text>
+          </view>
+          <view class="loading {{loadShow?'show':'hide'}}" >
+            <text>奋力搜索中</text>
+          </view>
+        </view> 
+
+        <view class="picker-view" style="margin-bottom:20rpx;">
+          <input name="store_id" class="hide" value='{{storeId}}' style="height: 0" /> 
+            <picker name="store_name" bindtap="storeTap" disabled="{{disabled}}"  bindchange="bindPickerChange" data-id="{{storeArray[index].id}}" value="{{storeArray[index].name}}" range-key="storeName" range="{{storeArray}}">
+            <view class="store" wx:if="{{picker_show}}" style=" margin-top: 0">
+              <text style="color:#a1a1a1;">请选择您的所属门店</text>
+            </view>
+            <view class="store" wx:else  style=" margin-top: 0">
+              <text style="color: #333">{{storeArray[index].storeName}}</text>
+            </view>
+          </picker>
+        </view>
+        <view  class="itemView">
+            <input class="input" type="text" name="myname" placeholder="请输入您的姓名" placeholder-style="color:#a1a1a1" bindinput="scanfName" />
+        </view>
+        <view  class="itemView" style="margin-bottom: 0">
+            <input class="input" type="text" name="position" placeholder="请输入您的职务，如店长" placeholder-style="color:#a1a1a1" bindinput="scanfPosition" />
+        </view>
+        <view class="warn-view">
+            <text class="warn-text {{is_warnshow2 ? 'show':'hide'}}">{{warnNextTitle}}</text>
+        </view>
+        <view class="itemView">
+            <button class="loginBtn button" formType="submit">下一步</button>
+        </view>
+    </view>
+    </form>
+<!-- 注册成功弹窗 -->
+  
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+    <view class="modal-dialog" wx:if="{{showModal}}">
+      <view class="head {{isHead ? 'show':'hide'}}">
+        <image src="/images/toast.png" style="width:551rpx; height:283rpx;"></image>
+      </view>
+      <view class="modal-content">
+        <view class="modal-title">
+          <text>{{titleMsg}}</text>
+        </view>
+        <view class="modal-footer">
+          <button class="btn-cancel " bindtap="onCancel" data-status="cancel">我知道了</button>
+        </view>
+      </view>
+  </view> 
+</view>
+
+

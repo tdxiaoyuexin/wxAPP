@@ -1,0 +1,6 @@
+{
+	"navigationBarBackgroundColor": "#000",
+	"navigationBarTitleText": "照片上传",
+	"navigationBarTextStyle": "white",
+	"enablePullDownRefresh": "false"
+}

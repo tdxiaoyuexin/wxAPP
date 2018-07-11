@@ -1,0 +1,42 @@
+
+.login-img { position: absolute; top: 0; width: 100%; height: 100%; }
+.login-form { position: absolute; top: 240rpx; left: 0; width: 100%; }
+.input-pannel,.loginBtnView { clear: both; position: relative; margin: 0 auto; width: 688rpx; height: 85rpx; border: 1rpx solid #fff; border-radius: 3px; }
+.input-pannel input,.yzm-input-pannel input { padding-left: 28rpx;  width: 660rpx; height: 100%; color: #fff; background: none;}
+
+.loginBtnBg,.input-pannel-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #fff; opacity: .3; z-index:0s; }
+.yzm-input-pannel { position: relative; float: left; width: 432rpx;  height:85rpx; border: 1rpx solid #fff; border-radius: 3px; }
+.yzm-input-pannel wx-input { width: 404rpx; }
+.yzm-pannel {  clear: both; margin: 20rpx auto 0 auto; width: 688rpx; height:auto; border: 0; border-radius:0;}
+
+
+.hide{ display: none; }
+.show{ display: block; }
+#checkCode { float: right; width: 237rpx; height: 85rpx; line-height:85rpx; border: 1rpx solid #fff; background: #fff; font-style:italic; border-radius: 3px; }
+#checkCode text { width: 100%; height: 100%; color: #387f3e; font-size: 48rpx;}
+.loginBtnView { position: relative; }
+.loginBtnView button { position: absolute; width: 100%; height: 100%; color: #fff; background: none; z-index:2;
+}
+/* .loginBtnView button[type="primary"] {
+color:#FFFFFF;
+background:none;
+}
+ */
+.loginBtnView wx-button.btn-hover { color:#000; background:#7c7d7c; opacity:.3} 
+.forget-password { margin-top: 25rpx; color: #fff; text-decoration: underline; }
+.show-btn {
+  margin-top: 100rpx;
+  color: #22cc22;
+}
+
+/*button[disabled][type="primary"] {
+  background-color:#9ED99D;
+}*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.weui-regist { position: absolute; bottom: 0; width: 100%; height: 89rpx; line-height: 89rpx; color: #fff;}
+

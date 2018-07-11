@@ -1,0 +1,23 @@
+page {background:#fff; text-align: center; }
+.search-view {width:694rpx; margin: 27rpx auto 0 auto; z-index: 2;}
+
+.search_input input { padding-left:20rpx; width:672rpx; height: 84rpx; line-height:84rpx; border-radius:3px; border: 1rpx solid #c6c6c6; text-align: left; }
+.result { position: absolute; width:692rpx; height: auto; max-height: 220rpx; border:1rpx solid #c6c6c6; border-top:0; overflow: hidden; color:#333; background: #fff; overflow: scroll;}
+.result text { display:block; padding-left:20rpx; height:80rpx; line-height:80rpx; text-align: left; color:#999; }
+.result text:hover { background: #eee; }
+
+.upload { margin:0 auto; padding-top: 28rpx; width: 688rpx;}
+.pic-part { border-bottom: 1rpx solid #c6c6c6; }
+.show-image { margin: 28rpx auto; width:418rpx; height:260rpx; border: 1px dashed #c6c6c6; border-radius: 5px;}
+.intro { margin-bottom: 28rpx;  text-align: left; color: #666666;font-size: 26rpx; }
+.intro text { line-height: 30rpx; }
+.input-view input { padding-left: 20rpx; margin-bottom: 28rpx; height: 85rpx; line-height: 85rpx; border: 1rpx solid #c6c6c6; border-radius: 5rpx; text-align: left; }
+.submit { margin: 0 auto 65rpx auto; }
+.input-view picker[name='take_date']{ padding-left: 20rpx; height: 85rpx; line-height: 85rpx; border: 1px solid #c6c6c6; border-radius: 3px; text-align: left; }
+.warn-view { margin:5px 0; }
+.warn-text text { height: 50rpx; line-height: 50rpx;}
+.modal-mask { text-align: center;  }
+.load { position:absolute; left:50%; top:50%; margin-left:-55rpx; margin-top:-55rpx; width:110rpx; height:110rpx; z-index:20; }
+.company { padding-left:20rpx; margin:0 auto; width:670rpx; border:1rpx solid #c6c6c6; border-radius:3px; text-align:left; }
+.company wx-text { display:block; height:84rpx; line-height:84rpx; }
+

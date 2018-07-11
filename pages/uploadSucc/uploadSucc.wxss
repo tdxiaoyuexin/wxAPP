@@ -1,0 +1,5 @@
+.uploadSucc { background: #fff;}
+.uploadSucc image { width:100%; height:259rpx;}
+.link { text-decoration:underline;}
+.content { padding-top:30rpx; text-align: center; color:#666666; line-height:50rpx;}
+.link { margin-top:50rpx; color:#22a1f2;}

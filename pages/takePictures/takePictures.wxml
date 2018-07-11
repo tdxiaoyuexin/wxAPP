@@ -1,0 +1,128 @@
+<view  catchtap="">
+<form bindsubmit="bindSaveTap">
+<view class="search-view" wx:if="{{listLength>30}}">  
+  <view class="search_input">  
+    <input name="company_name" placeholder="请输入公司名称" placeholder-style="color:#a1a1a1"  disabled="{{disabledCom}}" value="{{searchValue}}" focus="{{companyfocus}}" bindinput="searchCompany" bindblur="blurTap"/> 
+    <input name="company_id" class="hide" value='{{companyId}}' style="height: 0" /> 
+  </view>
+    <scroll-view scroll-y="true" class='result {{resultShow ? "show": "hide"}}'>
+      <view wx:for="{{searchList}}" wx:for-item="item" wx:key="id">
+        <text bindtap="tapCompany" data-id="{{item.id}}" data-name="{{item.companyName}}">{{item.companyName}}</text>
+      </view>
+      <view class="loading {{loadShow?'show':'hide'}}" >
+        <text>奋力搜索中</text>
+      </view>
+    </scroll-view> 
+</view>
+
+
+<view class="search-view" wx:else>  
+  <picker name="company_name" bindchange="bindCompanyChange"  disabled="{{disabledCom}}" data-id="{{companyList[indexCom].id}}" value="" range="{{companyList}}" range-key="companyName" value="{{companyList[indexCom].companyName}}" >
+    <view class="company" wx:if="{{picker_show2}}">
+      <text style="color:#a1a1a1;">请选择公司</text>
+    </view>
+    <view class="company" wx:else>
+      <text style="color: #333">{{companyName}}</text>
+    </view>
+  </picker>
+  <input name="company_id" class="hide" value='{{companyId}}' style="height: 0" /> 
+</view>
+
+
+<view class="picker-view">
+  <input name="store_id" class="hide" value='{{storeId}}' data-value="{{storeName}}" style="height: 0" /> 
+ 	<picker name="store_name" bindtap="storeTap" disabled="{{disabled}}" bindchange="bindPickerChange" data-id="{{storeArray[index].id}}" value="{{storeArray[index].name}}" range-key="storeName" range="{{storeArray}}">
+    <view class="store" wx:if="{{picker_show}}">
+      <text style="color:#a1a1a1;">请选择门店</text>
+    </view>
+    <view class="store" wx:else>
+      <text style="color: #333">{{storeName}}</text>
+    </view>
+  </picker>
+</view>
+<view class="upload">
+    <view class="intro">
+		  <text>请按下面提示一次上传相应相片</text>
+    </view>
+    <view class="pic-part pic-store">
+		  <!-- <image class= "show-image" mode="aspectFitf" src="{{src}}"  bindtap="gotoShow"></image> -->
+      <image class= "show-image" mode="aspectFitf" src="{{pics[0]}}" data-index="0" catchtap="chooseImageTap"></image>
+
+      <input name="header_pic" value="{{header_pic}}"  style="min-height:0; height: 0px"/>
+      <view class="intro">
+	      <text>优选高端店铺,务必保证门店名称清晰可见; 门店位置标记清楚;</text>
+      </view>
+      <view class="input-view">
+        <input type="text" name="address" placeholder="请填写门店详细位置" />
+      </view>
+    </view>
+
+    <view class="pic-part pic-room1 ">
+      <image class= "show-image" mode="aspectFitf" src="{{pics[1]}}" data-index="1" catchtap="chooseImageTap"></image>
+      <input name="room_pic_a" value="{{room_pic_a}}"  style="min-height:0; height: 0px"/>
+      <view class="intro">
+        <text>照片提现拍摄屏幕广告真实性,含店铺环境及店铺logo</text>
+      </view>
+      <view class="input-view">
+        <input type="" name="room1" placeholder="请填写房间名称, 如：304" />
+      </view>
+    </view>
+
+    <view class="pic-part pic-room2">
+      <image class= "show-image" mode="aspectFitf" src="{{pics[2]}}" data-index="2" catchtap="chooseImageTap"></image>
+      <input name="room_pic_b" value="{{room_pic_b}}"  style="min-height:0; height: 0px"/>
+      <view class="intro">
+        <text>照片提现拍摄屏幕广告真实性,含店铺环境及店铺logo</text>
+      </view>
+      <view class="input-view">
+        <input type="" name="room2" placeholder="请填写房间名称,如：304" />
+      </view>
+    </view>
+    <view class="pic-room4">
+      <image class= "show-image" mode="aspectFitf" src="{{pics[3]}}" data-index="3" catchtap="chooseImageTap"></image>
+      <input name="today_pic" value="{{today_pic}}"  style="min-height:0; height: 0px"/>
+      <view class="intro">
+        <text>照片构图清晰，广告主题明确,提现所投广告位置(如：映前,首页等展示); 拍摄时需手持当天报纸置于屏幕前,确定拍摄日期;</text>
+      </view>
+<!--      <view class="input-view">
+  <input type="" name="take_date" placeholder="请填写拍照日期, 如：07年9月8日" />
+</view> -->
+      <view class="input-view" >  
+        <picker mode="date" name="take_date" value="{{date}}" start="2017-09-01" end="2027-09-01" bindchange="bindDateChange">  
+          <view class="picker">  
+
+            <text wx:if="{{!date}}" style="color:#a1a1a1"> 请填写拍照日期, 如：07年9月8日 </text>
+            <text wx:else>{{date}}</text> 
+          </view>  
+        </picker>  
+      </view>  
+    </view>
+      <view class="warn-view" >
+        <text class="warn-text {{is_warnshow ?'show':'hide'}}">*{{warnTitle}}</text>
+      </view>
+    <view class="message-view">
+        <button class="button submit" formType="submit">提交</button>
+    </view>
+</view>
+</form>
+<view class="modal-mask" wx:if="{{showModal2}}">
+  <image src="/images/load.gif" class="load" wx:if="{{showModal2}}" ></image>
+</view>
+<!-- 提交成功或失败弹窗 -->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+      <view class="head {{isHead ? 'show':'hide'}}">
+        <image src="/images/toast.png" style="width:551rpx; height:283rpx;"></image>
+      </view>
+      <view class="modal-content">
+        <view class="modal-title">
+          <text>{{titleMsg}}</text>
+        </view>
+        <view class="modal-footer">
+          <view class="btn-cancel" bindtap="onCancel" disabled="{{disabledButton}}" data-status="cancel">我知道了</view>
+        </view>
+      </view>
+  </view> 
+</view>
+
+

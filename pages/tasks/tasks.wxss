@@ -1,0 +1,14 @@
+.tasks { padding-top: 111rpx;}
+.time-pannel { clear:both; margin: 0 auto; width:455rpx; height: 262rpx; overflow:hidden; }
+.time-title { margin-bottom:55rpx; display:block;  width:100%; color:#666666;  }
+.tasks button { clear:both; margin: 0 auto 63rpx auto; padding:0; width: 690rpx; height: 87rpx; line-height:87rpx;  background: #21a1f2; color:#fff; font-size:28rpx;}
+.tasks button.button-hover { background: #76bbf2;}
+.tasks .time-content .time-view { float: left; width:105rpx; line-height:90rpx; text-align:center; color:#334655; color: #fff;text-shadow: 0px 0px 1px #1a2f40; font-size:60rpx; font-weight: bold; }
+.tasks .time-content2 .time-view { float: left; width:105rpx; text-align:right; color:#334655; color: #fff;font-size: 25rpx; color: #333; font-weight: bold; }
+
+.sign { float:left; width:56rpx; line-height:90rpx; font-size: 55rpx; text-align: center; color:#fff; }
+.time-wrap { overflow: hidden;}
+.time-content { width: 455rpx; height: 90rpx; background:#334655;  border-radius: 5px; }
+.time-content2 { width: 455rpx; padding-top: 10rpx; color:#333; }
+.tasks .time-view text { color: #333; font-weight: normal; text-align: center; font-size: 25rpx;}
+.time-pannel .notaskImg { width:290rpx; height:262rpx;}

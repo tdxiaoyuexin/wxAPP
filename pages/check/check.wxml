@@ -1,0 +1,10 @@
+<view>
+	<view class="checkPic">
+		<image src="/images/check.png"></image>
+	</view>
+	<view class="check-text">
+		<text>您的账号资料已提交成功，正在审核中，</text>
+		<text>请耐心等待！如有疑问，您可以联系客服</text>
+		<text bindtap="calling">400-618-9920</text>
+	</view>
+</view>

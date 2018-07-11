@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/takePictures/takePictures",
+    "pages/currentTask/currentTask", 
+    "pages/uploadSucc/uploadSucc",
+    "pages/tasks/tasks",
+    "pages/myTask/myTask", 
+    "pages/register/register",
+    "pages/checkFail/checkFail",
+    "pages/noTask/noTask",
+    "pages/check/check",
+    "pages/user/user",
+    "pages/detail/detail"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "粉丝互动广告照片上传平台",
+    "navigationBarTextStyle":"#fff",
+    "enablPullDownRefresh": "true"
+  }
+}

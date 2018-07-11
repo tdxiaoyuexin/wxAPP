@@ -1,0 +1,111 @@
+<block>
+	<view class="taskWrap" wx:for="{{activeList}}">
+		<view class="mytask">
+			<view class="text-view">
+				<text class="storename">{{item.store}}</text>
+				<view wx:if="{{item.task_status==0}}">
+					<text class="status">进行中</text>
+				</view>
+				<view wx:else>
+					<text class="status">已结束</text>
+				</view>
+			</view>
+			<view class="picList">
+				  <view class="mypic">  
+			      <image  class="img" data-index='0' data-task='{{index}}' mode="aspectFit"  bindload="autoImage" bindtap="previewImage" src="{{qnUrl}}{{item.header_pic}}" data-src="{{qnUrl}}{{item.header_pic}}"></image>
+			      <view class="mask" wx:if="{{item.header_pic_reson}}">
+			      	<view class="line" wx:if="{{item.header_pic_reson.length>4}}" style="line-height: 32rpx;">
+								<text>{{item.header_pic_reson}}</text>
+							</view>
+							<view class="line" wx:if="{{item.header_pic_reson.length<=4}}" style="line-height: 62rpx;">
+								<text>{{item.header_pic_reson}}</text>
+							</view>
+			      </view>
+			    </view>
+				<!-- 
+						原版图片按比例缩放
+						    <view class="mypic"> 
+				  <image src="{{qnUrl}}{{item.room_pic_b}}" data-src="{{qnUrl}}{{item.room_pic_b}}" class="img" data-index='1' data-task='{{index}}' style="width:{{auto[index].width}}px" bindload="autoImage" bindtap="previewImage"></image>
+				    <view class="mask" wx:if="{{item.room_pic_b_reson}}">
+								       	<view class="line" wx:if="{{item.room_pic_b_reson.length>4}}" style="line-height: 32rpx;">
+											<text>{{item.room_pic_b_reson}}</text>
+										</view>
+										<view class="line" wx:if="{{item.room_pic_b_reson.length<=4}}" style="line-height: 62rpx;">
+											<text>{{item.room_pic_b_reson}}</text>
+										</view>
+				    </view>
+				</view> -->
+				<view class="mypic"> 
+			      <image src="{{qnUrl}}{{item.room_pic_a}}" data-src="{{qnUrl}}{{item.room_pic_a}}" class="img" data-index='2' data-task='{{index}}'  mode="aspectFit" bindtap="previewImage"></image>
+			        <view class="mask" wx:if="{{item.room_pic_a_reson}}">
+			       		<view class="line" wx:if="{{item.room_pic_a_reson.length>4}}" style="line-height: 32rpx;">
+									<text>{{item.room_pic_a_reson}}</text>
+								</view>
+								<view class="line" wx:if="{{item.room_pic_a_reson.length<=4}}" style="line-height: 62rpx;">
+									<text>{{item.room_pic_a_reson}}</text>
+								</view>
+			      </view>
+			    </view>  
+				  <view class="mypic"> 
+				  		<image src="{{qnUrl}}{{item.room_pic_b}}" data-src="{{qnUrl}}{{item.room_pic_b}}" class="img" data-index='1' data-task='{{index}}' mode="aspectFit" bindload="autoImage" bindtap="previewImage"></image>
+				    	<view class="mask" wx:if="{{item.room_pic_b_reson}}">
+				       	<view class="line" wx:if="{{item.room_pic_b_reson.length>4}}" style="line-height: 32rpx;">
+							<text>{{item.room_pic_b_reson}}</text>
+						</view>
+						<view class="line" wx:if="{{item.room_pic_b_reson.length<=4}}" style="line-height: 62rpx;">
+							<text>{{item.room_pic_b_reson}}</text>
+						</view>
+				    </view>
+				</view> 
+
+			    <view class="mypic last"> 
+			      <image src="{{qnUrl}}{{item.today_pic}}" data-src="{{qnUrl}}{{item.today_pic}}" class="img" data-index='3' data-task='{{index}}' mode="aspectFit" bindload="autoImage" bindtap="previewImage"></image>
+			      
+						<view class="mask" wx:if="{{item.today_pic_reson}}">
+						  <view class="line" wx:if="{{item.today_pic_reson.length>4}}" style="line-height: 32rpx;">
+									<text>{{item.today_pic_reson}}</text>
+								</view>
+								<view class="line" wx:if="{{item.today_pic_reson.length<=4}}" style="line-height: 62rpx;">
+									<text>{{item.today_pic_reson}}</text>
+								</view>
+			      </view>
+
+			    </view> 
+			</view>
+
+			<view class="text-view dash">
+				<text class="advert">{{item.task}}</text>
+				<text class="time">{{item.add_date}}</text>
+			</view>
+			<view class="buttons">
+				<view wx:if="{{item.status==1}}">
+					<button class="button red" disabled="true">初审</button>
+				</view>
+				<view wx:if="{{item.status==2}}">
+					<button class="button red">待复审</button>
+				</view>
+
+				<view wx:if="{{item.status==3}}">
+					<button class="button red" disabled="true">审核不通过</button>
+					<view class="" wx:if="{{item.task_status==0}}" style="width:165rpx;height:65rpx; overflow:hidden;display:inline-block;">
+						<button class="button red" bindtap="reUpload" data-company="{{item.company}}" data-companyId="{{item.company_id}}" data-imgId="{{item.task_img_id}}" data-store="{{item.store}}" data-storeId="{{item.store_id}}" data-taskId="{{item.task_id}}">重新上传</button>
+					</view>
+				</view>
+
+				<view wx:if="{{item.status==4}}">
+					<button class="button green" disabled="true">已审核</button>
+				</view>
+				<!-- <view wx:if="{{item.red_status==1}}">
+						<button class="button green" disabled="true">已发红包</button>
+				</view>
+				<view wx:if="{{item.red_status==2}}">
+						<button class="button red" disabled="true">未发红包</button>
+				</view> -->
+				<view wx:if="{{item.status==5}}">
+					<button class="button red" disabled="true">审核失败</button>
+				</view>
+		
+			</view>
+		</view>
+	</view>
+</block>

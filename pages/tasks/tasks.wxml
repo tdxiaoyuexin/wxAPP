@@ -1,0 +1,40 @@
+<view class="tasks">
+    <view class="time-pannel" wx:if="{{tasksNum>0}}">
+      <view class="{{!disabled? 'show':'hide'}}}">
+        <text class="time-title text-align ">{{timeTile}}</text>
+      </view>
+      <view class="time-wrap  {{!disabled? 'show':'hide'}}}">
+        <view class="time-content">
+          <view class="time-view hour" style="width:135rpx;">
+              {{lastHour}}
+          </view>
+          <view class="sign"><text>:</text></view>
+          <view class="time-view minutes">
+            {{lastMin}}
+          </view>
+          <view class="sign"><text>:</text></view>
+          <view class="time-view seconds">
+              {{lastSec}}
+          </view>
+        </view>
+        <view class="time-content2">
+          <view class="time-view hour">
+            时
+          </view>
+          <view class="sign"><text>：</text></view>
+          <view class="time-view minutes">
+            分
+          </view>
+          <view class="sign"><text>：</text></view>
+          <view class="time-view seconds">
+            秒
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="time-pannel" style="text-align:center;" wx:else>
+      <image class="notaskImg" src="/images/notask2.png" mode=""></image>
+    </view>
+  <button size="default" class="current-task" bindtap="jumpMytask" style="margin-top: 88rpx;" disabled="{{disabled}}">当前任务({{tasksNum}})</button>
+  <button size="default" bindtap="mytask">我参与的任务</button>
+</view>

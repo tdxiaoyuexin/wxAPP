@@ -1,0 +1,78 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="currentTask">
+ 	<swiper class="swiper" indicator-dots="{{indicatorDots}}"
+	  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{currentPage}}" vertical="{{vertical}}"  bindchange="swiperChange">
+	    <block wx:for="{{taskList}}" wx:key="key" >
+		    <swiper-item>
+			   <!-- <view class="task-progress text-align" >
+			   	<text class="progressValue">{{item.progressValue}}%</text>
+			   	<text class="progressTitle">当前完成进度</text>
+			   </view> -->
+			    <view class="task-progress text-align" >
+			   		<text class="progressValue">{{num1}}%</text>
+			   		<text class="progressTitle">当前完成进度</text>
+			    </view>
+		    	<text class="taskName">{{item.task}}</text>
+		    	<image src="/images/taskBg.jpg" class="slide-image" width="100%" height="100%"></image>
+		    </swiper-item>
+	    </block>
+
+	</swiper>
+<!-- 	    <view class="swiper-arrow swiper-left {{leftArrow?'show':'hide'}}" catchtap="tapSwiperLeft">
+			<image src="/images/arrow-l.png"></image>
+</view>
+<view class="swiper-arrow swiper-right {{rightArrow?'show':'hide'}}" catchtap="tapSwiperRight">
+			<image src="/images/arrow-r.png" ></image>
+</view> -->
+	<view class="wrap" style="padding-bottom:130rpx;">
+		<view class="deadlineView content">
+			<view class="inner">
+				<view class="title">
+					<text class="icon"></text>
+					<text class="titleName" >任务截止时间</text>
+				</view>
+
+				<view class="inner-content">{{taskList[currentPage].deadline}}</view>
+			</view>
+		</view>
+		<view class="deadlineView content">
+			<view class="inner">
+				<view class="title">
+					<text class="icon"></text>
+					<text class="titleName" >广告位置</text>
+				</view>
+				<view class="inner-content">{{taskList[currentPage].ad_pos}}广告</view>
+			</view>
+		</view>
+		<view class="tasknoteView content">
+			<view class="inner">
+				<view class="title">
+					<text class="icon"></text>
+					<text class="titleName" >任务说明</text>
+				</view>
+				<view style="padding: 0 0 20rpx 0">
+					<!-- <view class="inner-content">{{taskList[currentPage].task_note}}</view> -->
+					<block wx:for="{{taskList[currentPage].task_note}}" wx:key="key">
+						<text class="note">{{item}}</text>
+					</block>
+				</view>
+			</view>
+		</view>
+		<view class="wxParse content" style="padding-bottom:28rpx;">
+			<div class="inner">
+				<view class="title">
+					<text class="icon"></text>
+					<text class="titleName">任务示例</text>
+				</view>
+		    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+			</div>
+		</view>
+	</view>
+	<view class="message-view">
+      <!--  <button><navigator url="/pages/takePictures/takePictures" class="loginBtn"><text>去完成任务</text></navigator></button> -->
+      <button bindtap="dotask">去完成任务</button>
+    </view>
+</view>
+<view class="modal-mask" wx:if="{{showModal}}">
+	<image src="/images/load.gif" class="load" wx:if="{{showModal}}" ></image>
+</view>

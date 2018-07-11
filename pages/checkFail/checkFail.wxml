@@ -1,0 +1,29 @@
+<view class="checkFail">
+	<view class="checkPic" wx:if="{{code==204}}">
+		<!-- 审核未通过 -->
+		<image src="/images/fail.png"></image>
+		<view class="check-text">
+			<text>您的账号审核未通过,请重新填写后在提交!</text>
+			<text class="reason">不通过理由：{{titleMsg}}</text>
+		</view>
+	</view>
+	<view class="checkPic" wx:if="{{code==202}}">
+	<!-- 账号被禁用 -->
+		<image src="/images/fail2.png"></image>
+		<view class="check-text">
+			<text>您的账号已被禁用!</text>
+			<text class="reason">禁用理由：{{titleMsg}}</text>
+		</view>
+	</view>
+	<view class="checkPic" wx:if="{{code==203}}">
+		<!-- 账号待审核 -->
+		<image src="/images/fail3.png"></image>
+		<view class="check-text">
+			<text>您的资料已提交成功，正在审核，请耐心等待!</text>
+		</view>
+	</view>
+
+	<!-- <view class="itemView">
+		<button class="button" bindtap="goback">首页</button>
+	</view> -->
+</view> 
